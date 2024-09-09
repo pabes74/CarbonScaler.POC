@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarbonScaler.CarbonDataAPI", "CarbonScaler.CarbonDataAPI.csproj", "{44F0C721-6DCE-4BC8-9C8E-1016D6297437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockBackgroundProcess", "..\MockBackgroundProcess\MockBackgroundProcess.csproj", "{67EE40F9-500A-4BB3-AB1D-CC18B0BBA7EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AADC044D-CA60-430E-A73C-EDCC2625C985}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44F0C721-6DCE-4BC8-9C8E-1016D6297437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F0C721-6DCE-4BC8-9C8E-1016D6297437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F0C721-6DCE-4BC8-9C8E-1016D6297437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F0C721-6DCE-4BC8-9C8E-1016D6297437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67EE40F9-500A-4BB3-AB1D-CC18B0BBA7EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EE40F9-500A-4BB3-AB1D-CC18B0BBA7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EE40F9-500A-4BB3-AB1D-CC18B0BBA7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EE40F9-500A-4BB3-AB1D-CC18B0BBA7EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54BB9EA1-5D47-4E0B-920F-82BEE04E3E74}
+	EndGlobalSection
+EndGlobal
