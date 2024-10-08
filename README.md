@@ -12,30 +12,33 @@
 
 
                      
-# Duurzaam schalen voor beginners
-Termen als duurzaamheid/sustainability, carbonfootprint, CO2 neutraal en klimaatverandering zijn niet meer weg te denken uit het hedendaagse debat over milieubescherming en de transitie naar een duurzamere wereld. Dat iedereen zijn steentje bijdraagt om deze planeet zo leefbaar mogelijk te houden is een mooi en nobel streven. Bij CO2 uitstoot denk je wellicht snel aan dampende fabrieken, zware vrachtauto's of landbouw, maar ook wij als ICT sector met onze datacenters dragen bij een CO2 uitstoot. (Zie b.v. dit artikel in [Science](https://datacenters.lbl.gov/sites/default/files/Masanet_et_al_Science_2020.full_.pdf) of het onderzoek van [Internal Energy Agency](https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks)). Meerdere onderzoeken wijzen uit dat onze sector verantwoordlijk is voor 1 tot 2 procent van de totale uitstoot. Dit klinkt wellicht weinig maar als we uitgaan van de 2% uitstoot is dit alsnog 736 miljoen ton. Dit in vergelijking met de gemiddelde uitstoot van 1 persoon per jaar in de EU wat neerkomt op 6 to 8 ton is het 736 miljoen ton een aanzienlijke bijdrage.
+# Sustainable Scaling for Beginners
+Terms like *sustainability, carbon footprint, CO2 neutral, and climate change* are no longer absent from today's debate on environmental protection and the transition to a more sustainable world. That everyone contributes to keeping this planet as livable as possible is a beautiful and noble goal. When you think of CO2 emissions, you might quickly think of steaming factories, heavy trucks, or agriculture, but we in the ICT sector with our data centers also contribute to CO2 emissions. (See, for example, this article in [Science](https://datacenters.lbl.gov/sites/default/files/Masanet_et_al_Science_2020.full_.pdf) or the research by the [International Energy Agency](https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks)). Multiple studies indicate that our sector is responsible for 1 to 2 percent of total emissions. This may sound like a small amount, but if we assume 2% emissions, this is still 736 million tons of CO2 per year. An average person within the EU has an annual emission of 6 to 8 tons of CO2. So 736 million tons is equivalent to the emissions of approximately 100 million people.
 
-## Want kun je doen?
-Het terugdringen van deze uitstoot klinkt misschien als een druppel op een gloeiende plaat, maar elke druppel is er één. In het kader van deze druppels zijn er legio manieren waarop je als organisatie de het energie verbruik in in je datacenters kan verminderen denk b.v. afsluiten van een contract bij een data center met een duidelijke "groene" visie wat betreft hernieuwbare energie, koeling faciliteiten en effienctie van hardware, maar denk bijvoorbeeld ook eens aan het uitzetten van machines op uren dat ze niet nodig zijn (b.v. s'nachts). 
+## What can you do as an organization?
+Reducing these emissions may sound like a drop in the ocean, but every drop counts. In the context of these drops, there are numerous ways in which you as an organization can reduce the energy consumption of your ICT landscape. For example, as an organization, you can consider signing a contract with a data center that has a clear "green" vision regarding renewable energy, cooling facilities, and hardware efficiency. If your organization uses a cloud solution, you can often take advantage of the many features that cloud providers already offer in the field of sustainability. Powerful "ready-made" dashboards can give you direct insight into which parts of your landscape have how much emissions.
+
+In addition to these more hardware-related matters, as an organization, you can also look at more efficient use of energy within your applications. For example, consider minimizing requests (is all the data we send really necessary?), messaging instead of polling (consider using messaging systems like RabbitMQ or Azure Service Bus instead of regular polling, as this can provide more efficient and energy-saving mechanisms), and data retention (is long-term storage of data really necessary?).
+ 
 ### The next level
-Naast deze wat meer voor de hand liggende zaken zijn er ook geavanceerdere manieren om de CO2 uitstoot van bepaalde onderdelen van je applicatielandschap te verbeteren. Een mooi voorbeeld hiervan is het dynamisch gebruik maken van de realtime data over de huidige energie mix. Energie zoals wij deze gebruiken is altijd een samenvoegsel van verschillende energie bronnen denk dan aan: gas, kolen, nucleair, wind en zon. Vooral de laatste 2 energie bronnen zijn natuurlijk niet altijd in dezelfde hoeveelheden aanwezig (b.v. geen wind en bewolking). Dit betekend dan ook dat de energie op verschillende momenten op de dag "groener" is dan op andere momenten. 
+In addition to these obvious matters, there are also more advanced ways to improve the CO2 emissions of your application landscape. A good example of this is the dynamic use of real-time data about the current energy mix. The energy we use is always a mix of different energy sources such as gas, coal, nuclear, wind, and solar. Especially the last two energy sources are, of course, not always available in the same quantities (e.g., no wind and cloudy weather). This means that the energy is "greener" at different times of the day than at other times.
 
-Een aantal partijen bieden deze realtime data aan om gebruik van te maken binnen je organisatie. Dit zijn b.v. [ElectricityMaps](https://app.electricitymaps.com/map) en [Watttime](https://watttime.org/docs-dev/coverage-map/)
+A number of parties offer this real-time data for use within your organization. These include, for example, [ElectricityMaps](https://app.electricitymaps.com/map) en [Watttime](https://watttime.org/docs-dev/coverage-map/)
 
-### Schaalbaarheid scenario's
-Binnen veel organisaties zijn er bepaalde services/applicaties/achtergrond processen die wel van belang zijn maar het tijdstip waarop deze draaien zijn minder van belang. Je kunt hier bijvoorbeeld denken aan bepaalde calculaties, rapportages of data synchronisatie. Door de gebruik te maken van de realtime data van electricitymap of watttime kun je de keuze maken om deze processen op te schalen op het moment dat de energie mix groen genoeg is voor jou maatstaven. 
+### Scalability Scenarios
+Within many organizations, there are certain services/applications/background processes that are important, but the timing of when they run is less critical. For example, you can think of certain calculations, reports, or data synchronization. By using the real-time data from electricitymap or watttime, you can choose to scale these processes up when the energy mix is green enough for your standards.
 
-Door gebruik te maken van het autoscaling platform KEDA in combinatie met de data van electricitymap of watttime kun je er voor zorgen dat je processen vol automisch worden opgeschaald. 
+By using the autoscaling platform KEDA in combination with the data from electricitymap or watttime, you can ensure that your processes are scaled up automatically.
 
-**Om deze constructie te illustreren is er de volgende [git repo](https://github.com/pabes74/CarbonScaler) beschikbaar gemaakt.** Deze repo bevat een voorbeeld "proof of concept" van een carbonscaler container die de data uit ElectricityMaps leest deze omzet naar een raportcijfer en op basis hiervan een MockBackgroundProcess container schaalt naar meerdere instanties. Hier wordt gebruik gemaakt van KEDA en Azure Container App (zie [deze blog](https://www.bergler.nl/container-orchestratie-gemakkelijk-gemaakt-maar-hoe-dan/)). Deze laatste keuze impliceert dan je ben hier gebonden het gebruik van de Azure cloud¹. Aangezien Azure Container App intern gewoon kubernetes gebruik kun je ook gebruik maken van KEDA. 
+**To illustrate this setup, the following [git repo](https://github.com/pabes74/CarbonScaler) has been made available.** This repo contains a "proof of concept" of a carbonscaler container. This carbonscaler reads the data from ElectricityMaps and converts it into a score. Based on that score, the MockBackgroundProcess container is scaled up or down. This uses KEDA and Azure Container App (see [this blog](https://www.bergler.nl/container-orchestratie-gemakkelijk-gemaakt-maar-hoe-dan/)). The choice for Azure Container Apps implies that you are bound to using the Azure cloud. Since Azure Container App internally uses Kubernetes, you can also use the KEDA scalers.
 
-> *¹ Microsoft is voornemens om per 2025 volledig klimaat neutraal te zijn, dit doet de vraag rijzen hoe nuttig dit is in Azure na 2025. Maar er is een kanttekening dat onbekend is of dit betekend dat ze ook 100% groene energie gebruiken of ook gedeeltelijk nog CO-2 compenseren. 100% groene energie leveren op basis van zon en wind is lastig in Nederland*
+> *¹ Microsoft intends to be fully climate neutral by 2025, which raises the question of how useful this will be in Azure after 2025. However, there is a caveat that it is unknown whether this means they will use 100% green energy or also partially compensate for CO-2. Providing 100% green energy based on solar and wind is challenging in the Netherlands.*
 
-Schematisch zie dit Proof of concept er als volgt uit:
+Schematically, this Proof of Concept looks as follows:
 
 ![carbonscaler](CarbonScaler.png)
-Je ziet hier dat de carbonscaler een API call doet naar Electricity Maps voor het ophalen van de recente energy mix. 
-In de repo is dit opgenomen in de ElectriticyMapService.cs deze service doet een API call op basis van de volgende appsettings:
+You can see here that the carbonscaler makes an API call to Electricity Maps to retrieve the recent energy mix.
+In the repo, this is included in the ElectricityMapService.cs. This service makes an API call based on the following appsettings:
 
 ```json
   "ElectricityMapService": {
@@ -45,10 +48,10 @@ In de repo is dit opgenomen in de ElectriticyMapService.cs deze service doet een
     "Zone": "NL"
   }
 ```
-Hier moet uiteraard gebruik worden gemaakt van je eigen AuthToken die je kunt aanvragen bij ElectricityMap. Tevens is hier zone NL aangegeven, afhankelijk van de locatie van je data centrum kun je dit ook aanpassen.
+Here you should, of course, use your own AuthToken, which you can request from ElectricityMap. The zone NL is indicated here, but you can adjust this depending on the location of your data center.
 
-De mockbackground container app heeft de KEDA scaler metrics API geconfigureerd (zie [docs](https://keda.sh/docs/2.15/scalers/metrics-api/)). Deze kijkt naar de uitkomsten van de carbonscaler en schaalt op basis van de geconfigureerde targetvalue. 
-In de deployment bicep van je container app zou je bijvoorbeeld onstaande kunnen opnemen om de KEDA scaling te configureren:
+The mockbackground container app has the KEDA scaler metrics API configured (see [docs](https://keda.sh/docs/2.15/scalers/metrics-api/)). This looks at the outcomes of the carbonscaler and scales based on the configured target value. 
+In the deployment Bicep of your container app, you could include the following to configure the KEDA scaling:
 ```yaml
       scale: {
         minReplicas: 1
@@ -69,11 +72,10 @@ In de deployment bicep van je container app zou je bijvoorbeeld onstaande kunnen
           }
         ]
 ```
-Dit is voldoende om er voor te zorgen dat KEDA scaler actief is en de gekoppelde services (in dit geval de mockbackground service) gaat schalen op basis van de targetValue. Tevens is hier opgenomen dat de scaling een maximum heeft van 5 replicas en een minimum van 1. KEDA heeft de mogelijkheid te schalen vanaf 0 tot n. Let wel op dat hoe meer replica's hoe hoger de hostig kosten.
+This is sufficient to ensure that the KEDA scaler is active and scales the linked services (in this case, the mockbackground service) based on the targetValue. It also specifies that the scaling has a maximum of 5 replicas and a minimum of 1. KEDA has the capability to scale from 0 to n. Note that the more replicas, the higher the hosting costs.
 
-
-## Conclusie
-Dit is één van de voorbeeld maatregelen die je als organisatie kunt treffen om je CO2 footprint te verkleinen. Zoals eerder aangegeven zijn dit kleine stappen maar elk begin is er één. Je kunt met deze technologie ook maatregelen treffen om bijvoorbeeld bepaalde services te schalen in andere regio's. Zo is de energie mix in scandinavie in veel gevallen veel "groener" dan in nederland. De effort die het kost om een dergelijk constructie op te zetten is relatief laag en daarmee het overwegen binnen organisaties waard. Hopelijk geeft dit artikel wat inspiratie om eens serieuze overwegingen te maken in de richting van duurzamere manieren van hosting.
+## Conclusion
+This is one of the example measures you can take as an organization to reduce your CO2 footprint. As mentioned earlier, these are small steps, but every beginning counts. With this technology, you can also take measures to scale certain services in other regions. For example, the energy mix in Scandinavia is often much "greener" than in the Netherlands. The effort required to set up such a construction is relatively low, making it worth considering within organizations. Hopefully, this article provides some inspiration to seriously consider more sustainable ways to set up your ICT landscape.
                                                                
 
 ## How to Start
@@ -94,27 +96,28 @@ docker run -it -p 3085:8080 mockbackgroundprocess:dev
 docker login ***.azurecr.io
 username: ***
 ```
+password in portal
 
 #### Push local container registry
-```sh
-docker tag carbondata:dev ***.azurecr.io/carbondata
-docker push ***.azurecr.io/carbondata
-docker tag mockbackgroundprocess:dev ***.azurecr.io/mockbackgroundprocess
-docker push ***.azurecr.io/mockbackgroundprocess
+```
+docker tag carbondata:dev crberglernebg.azurecr.io/carbondata
+docker push crberglernebg.azurecr.io/carbondata
+docker tag mockbackgroundprocess:dev crberglernebg.azurecr.io/mockbackgroundprocess
+docker push crberglernebg.azurecr.io/mockbackgroundprocess
 ```
 
 ## Test service in cloud
 In console van de mockbackgroundprocess
 
 #### Install packages
-```sh
+```
 apt-get update
 apt-get upgrade
 apt install curl
 ```
 
 #### Test service endpoints
-```sh
+```
 curl carbondata/api/ElectricityMap
 curl carbondata/api/stub
 ```
