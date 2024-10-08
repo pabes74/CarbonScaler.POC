@@ -100,10 +100,10 @@ password in portal
 
 #### Push local container registry
 ```
-docker tag carbondata:dev crberglernebg.azurecr.io/carbondata
-docker push crberglernebg.azurecr.io/carbondata
-docker tag mockbackgroundprocess:dev crberglernebg.azurecr.io/mockbackgroundprocess
-docker push crberglernebg.azurecr.io/mockbackgroundprocess
+docker tag carbondata:dev ***.azurecr.io/carbondata
+docker push ***.azurecr.io/carbondata
+docker tag mockbackgroundprocess:dev ***.azurecr.io/mockbackgroundprocess
+docker push ***.azurecr.io/mockbackgroundprocess
 ```
 
 ## Test service in cloud
